@@ -69,7 +69,7 @@ body {
 
 /* Main Container */
 .container {
-    width: 36vw; /* Uses 36% of the total screen width */
+    width: 900px; /* Locks the container to exactly 900 pixels wide */
     max-width: 1200px; /* Prevents it from getting too wide on ultra-wide monitors */
     min-width: 800px; /* Prevents it from getting too narrow on smaller laptops */
     margin: 0 auto;
