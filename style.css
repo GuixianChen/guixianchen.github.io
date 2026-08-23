@@ -98,11 +98,12 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Links and Interactive Buttons */
+/* Container holding all the buttons */
 .social-links {
     display: flex;
-    gap: 1rem;
-    align-items: flex-start; /* Keeps the other buttons aligned at the top when Email expands */
+    flex-wrap: wrap; /* Allows buttons to wrap to a new line if the screen is small */
+    gap: 15px; /* Creates a perfectly even, consistent gap between every button */
+    align-items: stretch; /* Forces all buttons in a row to stretch to the exact same height */
 }
 
 /* Inline Text Links (Paragraphs) */
@@ -118,26 +119,33 @@ p a:hover {
     opacity: 0.7; 
 }
 
-/* Unifies the style for both <a> tags and <button> tags */
+/* The individual buttons */
 .social-btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.2s;
-    background: transparent;
-    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px; 
+    padding: 0 20px; 
+    white-space: nowrap; 
+    box-sizing: border-box; 
     font-size: 1rem;
-    cursor: pointer;
+    text-decoration: none; 
+    font-family: inherit; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: all 0.2s ease; /* Adds a smooth fade effect on hover */
+    
+    /* Restored Colors (Default State) */
+    background-color: #ffffff; 
+    color: #00274C; /* Dark Navy Blue */
+    border: 1px solid #00274C; 
 }
 
-/* Apply the filled highlight color on hover OR when active */
+/* Hover State and Active Dropdown State */
 .social-btn:hover,
 .social-btn.active {
-    background-color: var(--accent-color);
-    color: white;
+    background-color: #00274C; /* Dark background */
+    color: #ffffff; /* White text */
 }
 
 /* Dropdown specific styles */
@@ -371,6 +379,10 @@ body.dark-mode {
     --text-main: #e0e0e0;
     --text-muted: #a0a0a0;
     --accent-color: #64b5f6; /* A lighter blue/accent for better contrast in dark mode */
+
+    /* Counteract the dark mode font illusion globally */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Ensure the body uses the background variables */
@@ -396,8 +408,22 @@ body.dark-mode .pub-item {
     border-bottom: 1px solid #333;
 }
 
+/* Dark Mode Button Overrides */
+body.dark-mode .social-btn {
+    background-color: transparent; /* Makes the button background match the dark page */
+    color: var(--accent-color); /* Uses your light blue accent color for the text */
+    border: 1px solid var(--accent-color); /* Matches the border to the text */
+}
+
+/* Dark Mode Hover/Active State */
+body.dark-mode .social-btn:hover,
+body.dark-mode .social-btn.active {
+    background-color: var(--accent-color); /* Fills the button with light blue */
+    color: var(--bg-color); /* Turns the text dark for contrast */
+}
+
 /* Mobile Responsiveness */
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .container {
         width: 100%;
         min-width: 0;
