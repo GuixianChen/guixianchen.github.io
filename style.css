@@ -69,9 +69,7 @@ body {
 
 /* Main Container */
 .container {
-    width: 900px; /* Locks the container to exactly 900 pixels wide */
-    max-width: 1200px; /* Prevents it from getting too wide on ultra-wide monitors */
-    min-width: 800px; /* Prevents it from getting too narrow on smaller laptops */
+    width: 910px; /* Locks the container to exactly 910 pixels wide */
     margin: 0 auto;
     padding: 4rem 2rem;
 }
