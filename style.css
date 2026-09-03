@@ -279,6 +279,8 @@ footer {
     background: transparent;
     padding: 0 0 1.5rem 0;
     border-bottom: 1px solid #eaeaea; /* Light gray line separator */
+    padding-bottom: 8px; /* Decrease this number to pull the line up */
+    margin-bottom:20px;  /* This controls the space below the line */
     border-radius: 0;
     box-shadow: none; /* No shadow */
     border-left: none; /* No thick left border */
