@@ -278,13 +278,18 @@ footer {
 .pub-item {
     background: transparent;
     padding: 0 0 1.5rem 0;
-    border-bottom: 1px solid #eaeaea; /* Light gray line separator */
+    border-bottom: 1px solid #cccccc; /* Light gray line separator */
     padding-bottom: 8px; /* Decrease this number to pull the line up */
-    margin-bottom:20px;  /* This controls the space below the line */
+    margin-bottom:0px;  /* This controls the space below the line */
     border-radius: 0;
     box-shadow: none; /* No shadow */
     border-left: none; /* No thick left border */
     transition: none; /* Remove hover animation */
+}
+
+/* Target the paragraph directly above the links */
+.pub-item p {
+    margin-bottom: 4px; /* Decrease this value to pull the links upward */
 }
 
 /* Don't show a line below the last paper in a section */
@@ -410,6 +415,10 @@ body.dark-mode .pub-item {
     border-bottom: 1px solid #333;
 }
 
+body.dark-mode .pub-item:last-child {
+    border-bottom: none;
+}
+
 /* Dark Mode Button Overrides */
 body.dark-mode .social-btn {
     background-color: transparent; /* Makes the button background match the dark page */
@@ -422,6 +431,15 @@ body.dark-mode .social-btn:hover,
 body.dark-mode .social-btn.active {
     background-color: var(--accent-color); /* Fills the button with light blue */
     color: var(--bg-color); /* Turns the text dark for contrast */
+}
+
+/* Add this to your regular (Day Mode) CSS, outside the dark mode block */
+.pub-item, 
+.service-item, /* Include whatever class names you used for these sections */
+.list-item {
+    border-bottom: 1px solid #cccccc; /* Draws the line in day mode */
+    padding-bottom: 8px; /* Ensures the spacing exists in day mode too */
+    margin-bottom: 0px;
 }
 
 /* Mobile Responsiveness */
