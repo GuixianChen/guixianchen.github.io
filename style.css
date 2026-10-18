@@ -189,6 +189,32 @@ p a:hover {
     font-weight: 500;
 }
 
+.copy-field {
+    display: grid;
+}
+
+.copy-field > * {
+    grid-area: 1 / 1;
+}
+
+.copy-contact {
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.copy-field.has-feedback .copy-contact {
+    color: transparent;
+}
+
+.copy-feedback {
+    color: var(--accent-color);
+    pointer-events: none;
+}
+
 /* Invisible bridge to prevent the hover gap dead zone */
 .dropdown-content::before {
     content: "";
@@ -270,42 +296,28 @@ footer {
 
 /* Publication List & Cards - Minimalist Flat Style */
 .pub-list {
+    --entry-spacing: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--entry-spacing);
 }
 
 .pub-item {
-    background: transparent;
-    padding: 0 0 1.5rem 0;
-    border-bottom: 1px solid #cccccc; /* Light gray line separator */
-    padding-bottom: 8px; /* Decrease this number to pull the line up */
-    margin-bottom:0px;  /* This controls the space below the line */
-    border-radius: 0;
-    box-shadow: none; /* No shadow */
-    border-left: none; /* No thick left border */
-    transition: none; /* Remove hover animation */
-}
-
-/* Target the paragraph directly above the links */
-.pub-item p {
-    margin-bottom: 4px; /* Decrease this value to pull the links upward */
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-bottom: var(--entry-spacing);
+    border-bottom: 1px solid #cccccc;
 }
 
 /* Don't show a line below the last paper in a section */
 .pub-item:last-child {
     border-bottom: none;
-}
-
-/* Remove hover effects */
-.pub-item:hover {
-    transform: none;
-    box-shadow: none;
+    padding-bottom: 0;
 }
 
 .pub-title {
     font-size: 1.2rem;
-    margin-bottom: 0.3rem;
     color: var(--text-main);
     line-height: 1.4;
     font-weight: 600;
@@ -313,14 +325,12 @@ footer {
 
 .pub-authors {
     font-size: 1rem;
-    margin-bottom: 0.2rem;
 }
 
 .pub-venue {
     font-size: 0.95rem;
     font-style: italic;
     color: var(--text-muted);
-    margin-bottom: 0.8rem;
 }
 
 /* Links (PDF, Code, etc.) are styled as clean underlines */
@@ -350,6 +360,10 @@ footer {
     font-size: 1.1rem;
     color: var(--text-main);
     margin-bottom: 0.5rem;
+}
+
+.interests-content ul li:last-child {
+    margin-bottom: 0;
 }
 
 /* Footer Separator Spacing */
@@ -433,17 +447,36 @@ body.dark-mode .social-btn.active {
     color: var(--bg-color); /* Turns the text dark for contrast */
 }
 
-/* Add this to your regular (Day Mode) CSS, outside the dark mode block */
-.pub-item, 
-.service-item, /* Include whatever class names you used for these sections */
-.list-item {
-    border-bottom: 1px solid #cccccc; /* Draws the line in day mode */
-    padding-bottom: 8px; /* Ensures the spacing exists in day mode too */
-    margin-bottom: 0px;
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1rem;
+    }
+
+    .theme-btn {
+        margin-left: 0;
+    }
+
+    .social-links {
+        position: relative;
+    }
+
+    .dropdown-container {
+        position: static;
+    }
+
+    .dropdown-content {
+        max-width: 100%;
+    }
+
     .container {
         width: 100%;
         min-width: 0;
