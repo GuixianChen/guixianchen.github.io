@@ -256,8 +256,8 @@ footer {
 }
 
 .profile-pic {
-    width: 226px;
-    height: 339px; /* Increased height for a portrait rectangle */
+    width: 280px;
+    aspect-ratio: 4 / 5;
     border-radius: 4%; /* Slightly rounded corners instead of a full circle */
     object-fit: cover;
     border: 0.0px solid var(--accent-color);
