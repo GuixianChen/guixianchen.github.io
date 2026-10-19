@@ -92,16 +92,34 @@
             }, 1000);
         }
 
+        const mobileLayout = window.matchMedia('(max-width: 767px)');
+
+        function closeDropdowns(except) {
+            document.querySelectorAll('.dropdown-content.show').forEach(content => {
+                if (content === except) return;
+                content.classList.remove('show');
+                content.previousElementSibling.classList.remove('active');
+            });
+        }
+
         function toggleDropdown(id, buttonElement) {
-            // Find the dropdown that was clicked and toggle its visibility
             const content = document.getElementById(id);
+            if (mobileLayout.matches) closeDropdowns(content);
             content.classList.toggle("show");
-            
-            // If a button element was provided, toggle its active color
             if (buttonElement) {
                 buttonElement.classList.toggle("active");
             }
         }
+
+        document.addEventListener('click', event => {
+            if (mobileLayout.matches && !event.target.closest('.dropdown-container')) {
+                closeDropdowns();
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (mobileLayout.matches && event.key === 'Escape') closeDropdowns();
+        });
     </script>
 
     <script>

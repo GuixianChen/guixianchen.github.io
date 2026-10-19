@@ -483,3 +483,75 @@ body.dark-mode .social-btn.active {
         padding: 2rem 1.5rem;
     }
 }
+
+/* Phone layouts */
+@media (max-width: 767px) {
+    .navbar {
+        position: relative;
+        padding: 1rem 1.5rem;
+    }
+
+    .nav-logo {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+
+    .nav-links {
+        flex-basis: 100%;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 0.5rem;
+    }
+
+    .nav-links > li:last-child {
+        display: flex;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+    }
+
+    .nav-links a,
+    .btn-small {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .nav-links a {
+        justify-content: center;
+    }
+
+    .nav-links a,
+    .theme-btn,
+    .btn-small,
+    .social-btn,
+    .copy-contact {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .intro-content {
+        gap: 2rem;
+    }
+
+    .intro-image {
+        max-width: 100%;
+    }
+
+    .profile-pic {
+        width: 240px;
+        max-width: 100%;
+    }
+
+    .intro-section h1 {
+        font-size: 2rem;
+    }
+
+    .copy-feedback {
+        align-self: center;
+    }
+
+    .dropdown-container:hover .dropdown-content:not(.show) {
+        display: none;
+    }
+}
