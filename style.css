@@ -394,6 +394,26 @@ footer {
     transform: scale(1.1);
 }
 
+.theme-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.theme-icon-sun,
+.dark-mode .theme-icon-moon {
+    display: none;
+}
+
+.dark-mode .theme-icon-sun {
+    display: block;
+}
+
 /* Dark Mode Variables */
 body.dark-mode {
     --bg-color: #121212;
@@ -528,6 +548,10 @@ body.dark-mode .social-btn.active {
     .copy-contact {
         min-width: 44px;
         min-height: 44px;
+    }
+
+    .theme-btn:hover {
+        transform: none;
     }
 
     .intro-content {

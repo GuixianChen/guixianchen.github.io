@@ -16,7 +16,17 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="experience.html" class="active-nav">Experience</a></li>
                 <li><a href="Guixian_Chen_CV.pdf" target="_blank">CV</a></li>
-                <li><button id="theme-toggle" class="theme-btn" style="font-size: 1.5rem;">☾</button></li>
+                <li>
+                    <button id="theme-toggle" class="theme-btn" type="button" aria-label="Dark mode" aria-pressed="false">
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+                        </svg>
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42M5.64 18.36l1.42-1.42m9.88-9.88 1.42-1.42"/>
+                        </svg>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -109,25 +119,14 @@
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme');
-
-        // Check if the user previously selected dark mode
-        if (currentTheme === 'dark') {
+        if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-            themeToggle.textContent = '☼'; // Minimalist Sun
         }
-
-        // Toggle theme on click
+        themeToggle.setAttribute('aria-pressed', document.body.classList.contains('dark-mode'));
         themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '☼'; 
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '☾'; // Minimalist Moon
-            }
+            const dark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+            themeToggle.setAttribute('aria-pressed', dark);
         });
     </script>
 </body>
